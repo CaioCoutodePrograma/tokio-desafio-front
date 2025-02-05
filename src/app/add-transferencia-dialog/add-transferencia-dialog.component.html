@@ -1,1 +1,39 @@
-<p>add-transferencia-dialog works!</p>
+<h2 mat-dialog-title>Agendar Transferência</h2>
+    <mat-dialog-content>
+        
+            <mat-form-field class="input-form">
+                <mat-label>Conta Origem</mat-label>
+                <input matInput maxlength="10"  minlength="10" [(ngModel)]="data.contaOrigem" >
+            </mat-form-field>
+            <mat-form-field class="input-form" >
+                <mat-label>Conta Destino</mat-label>
+                <input matInput maxlength="10" minlength="10" [(ngModel)]="data.contaDestino" >
+            </mat-form-field>
+            <mat-form-field class="input-form" floatLabel="always">
+                <mat-label >Valor</mat-label>
+                <input matInput type="number"  class="right-align"  [(ngModel)]="data.valor" placeholder="0">
+                <span matTextPrefix>R$&nbsp;</span>
+                <span matTextSuffix>.00</span>
+            </mat-form-field>
+            <mat-form-field class="input-form">
+                <mat-label>Data Agendamento</mat-label>
+                <input matInput type="date" disabled  [(ngModel)]="data.dataAgendamento">
+            </mat-form-field>
+            <mat-form-field class="input-form">
+                <mat-label>Data Transferencia</mat-label>
+                <input matInput type="date" [(ngModel)]="data.dataTransferencia">
+            </mat-form-field>
+            <mat-form-field class="input-form" floatLabel="always">
+                <mat-label>Valor da Taxa</mat-label>
+                <input matInput type="number"  class="right-align" disabled [(ngModel)]="data.valorDaTaxa" placeholder="0">
+                <span matTextPrefix>R$&nbsp;</span>
+                <span matTextSuffix>.00</span>
+            </mat-form-field>
+    
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancelar</button>
+      <button mat-button (click)="onSave()"[mat-dialog-close]="data">Salvar</button>
+    </mat-dialog-actions>
+
+    
