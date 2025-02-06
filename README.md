@@ -3,7 +3,7 @@
 
 ### Linguagem: 
 
-- TypeScript
+- JavaScript
 ### FrameWorks: 
 
 -  Angular 19
