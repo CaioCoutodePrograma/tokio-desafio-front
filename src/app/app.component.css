@@ -1,0 +1,20 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 140px;
+  }
+
+.tabela{
+    width: 60%;
+}
+
+.mat-mdc-card-content{
+    display: flex;
+    justify-content: center !important;
+}
+
+.card-maior{
+    display: flex;
+    justify-content: center;
+    
+}

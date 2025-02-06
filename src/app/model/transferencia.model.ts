@@ -1,8 +1,10 @@
+import { FaixaTaxaModel } from "./faixataxa.model";
+
 export class TransferenciaModel {
     id: number;
-    dataTransferencia: Date;
-    dataAgendamento: Date;
-    faixaTaxa: string;
+    dataTransferencia: string;
+    dataAgendamento: string;
+    faixaTaxa: FaixaTaxaModel;
     valor: number;
     contaOrigem: string;
     contaDestino: string;
@@ -10,9 +12,9 @@ export class TransferenciaModel {
   
     constructor(
       id: number,
-      dataTransferencia: Date,
-      dataAgendamento: Date,
-      faixaTaxa: string,
+      dataTransferencia: string,
+      dataAgendamento: string,
+      faixaTaxa: FaixaTaxaModel,
       valor: number,
       contaOrigem: string,
       contaDestino: string,

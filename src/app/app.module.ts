@@ -10,11 +10,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { AddTransferenciaDialogComponent } from './add-transferencia-dialog/add-transferencia-dialog.component';
+import { provideHttpClient } from '@angular/common/http';
+import { ApiService } from './service/api.service';
+import { CurrencyDirective } from './directive/currency.directive';
+import {NgxMaskDirective, NgxMaskPipe, provideNgxMask} from 'ngx-mask';
+import { NgxCurrencyDirective } from "ngx-currency";
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddTransferenciaDialogComponent
+    AddTransferenciaDialogComponent,
+    CurrencyDirective,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -24,11 +33,18 @@ import { AddTransferenciaDialogComponent } from './add-transferencia-dialog/add-
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    NgxCurrencyDirective,
+    MatCardModule,
     
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(),
+    ApiService,
+    provideNgxMask(),
   ],
   bootstrap: [AppComponent]
 })

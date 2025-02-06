@@ -3,37 +3,35 @@
         
             <mat-form-field class="input-form">
                 <mat-label>Conta Origem</mat-label>
-                <input matInput maxlength="10"  minlength="10" [(ngModel)]="data.contaOrigem" >
+                <input matInput maxlength="10"  minlength="10" [(ngModel)]="transferencia.contaOrigem" >
             </mat-form-field>
             <mat-form-field class="input-form" >
                 <mat-label>Conta Destino</mat-label>
-                <input matInput maxlength="10" minlength="10" [(ngModel)]="data.contaDestino" >
+                <input matInput maxlength="10" minlength="10" [(ngModel)]="transferencia.contaDestino" >
             </mat-form-field>
             <mat-form-field class="input-form" floatLabel="always">
                 <mat-label >Valor</mat-label>
-                <input matInput type="number"  class="right-align"  [(ngModel)]="data.valor" placeholder="0">
-                <span matTextPrefix>R$&nbsp;</span>
-                <span matTextSuffix>.00</span>
+                <input matInput type="text"  class="right-align" (blur)="blur()"  [currencyMask]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                 [(ngModel)]="transferencia.valor" >
             </mat-form-field>
             <mat-form-field class="input-form">
                 <mat-label>Data Agendamento</mat-label>
-                <input matInput type="date" disabled  [(ngModel)]="data.dataAgendamento">
+                <input matInput type="text" disabled  [(ngModel)]="transferencia.dataAgendamento">
             </mat-form-field>
             <mat-form-field class="input-form">
                 <mat-label>Data Transferencia</mat-label>
-                <input matInput type="date" [(ngModel)]="data.dataTransferencia">
+                <input matInput type="date" (blur)="blur()"   [(ngModel)]="transferencia.dataTransferencia">
             </mat-form-field>
             <mat-form-field class="input-form" floatLabel="always">
                 <mat-label>Valor da Taxa</mat-label>
-                <input matInput type="number"  class="right-align" disabled [(ngModel)]="data.valorDaTaxa" placeholder="0">
-                <span matTextPrefix>R$&nbsp;</span>
-                <span matTextSuffix>.00</span>
+                <input matInput type="text"  class="right-align" readonly  [currencyMask]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                [(ngModel)]="transferencia.valorDaTaxa">
             </mat-form-field>
     
     </mat-dialog-content>
     <mat-dialog-actions>
       <button mat-button (click)="onCancel()">Cancelar</button>
-      <button mat-button (click)="onSave()"[mat-dialog-close]="data">Salvar</button>
+      <button mat-button (click)="onSave()">Salvar</button>
     </mat-dialog-actions>
 
     
